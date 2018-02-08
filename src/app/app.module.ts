@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './user/list/list.component';
 import { UserService } from './user/user.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserService } from './user/user.service';
     ListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
