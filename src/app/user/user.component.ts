@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { User } from './list/user.model';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [UserService]
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
-  user: User = new User('el compa', 'chuy');
-
-  constructor() { }
+  constructor( private userService: UserService) { }
 
 
-  ngOnInit() {
+  onSave(value: string) {
+    const user = new User(value, 'Last name');
+    this.userService.addUser(user);
   }
+
+
 }
